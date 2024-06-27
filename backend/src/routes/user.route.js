@@ -1,16 +1,22 @@
-const express = require('express')
-const  isAuthenticated  = require('../middleware/auth.middleware.js')
-const { userRegister, userLogin, userLogout, userProfile, getUserById } = require('../controllers/user.controller.js')
+const express = require("express");
+const isAuthenticated = require("../middleware/auth.middleware.js");
+const {
+  userRegister,
+  userLogin,
+  userLogout,
+  userProfile,
+  getUserById,
+} = require("../controllers/user.controller.js");
 
-// router instances 
-const userRouter = express.Router();
+// router instances
+const userRoute = express.Router();
 
-// user routes 
-userRouter.post('/user/register', userRegister);
-userRouter.post('/user/login', userLogin);
-userRouter.get('/user/logout', userLogout);
-userRouter.get('/user/profile', isAuthenticated, userProfile);
-userRouter.get('/user/:id', isAuthenticated, getUserById)
+// user routes
+userRoute.post("/user/register", userRegister);
+userRoute.post("/user/login", userLogin);
+userRoute.get("/user/logout", userLogout);
+userRoute.get("/user/profile", isAuthenticated, userProfile);
+userRoute.get("/user/:id", isAuthenticated, getUserById);
 
-// exporting 
-module.exports =  userRouter 
+// exporting
+module.exports = userRoute;
