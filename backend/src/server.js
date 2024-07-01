@@ -1,7 +1,9 @@
-const express =require("express");
-const connectDB =require("./db/index.js")
-const cookieParser = require('cookie-parser');
-const userRouter =require("./routes/user.route.js")
+const express = require("express");
+const connectDB = require("./db/index.js");
+const cookieParser = require("cookie-parser");
+const userRoute = require("./routes/user.route.js");
+const mediaRoute = require("./routes/media.route.js");
+const bookmarkRoute = require("./routes/bookmark.route.js");
 
 const app = express();
 
@@ -10,14 +12,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.get("/",(req,res)=>{
-  res.send("hello world");
-})
+app.get("/", (req, res) => {
+  res.send("Welcome To Home Page");
+});
 
-// user route 
-app.use("/api", userRouter);
+// user route
+app.use("/api", userRoute);
+
+//media route
+app.use("/api", mediaRoute);
+
+// bookmark route
+app.use("/api", bookmarkRoute);
 
 const port = process.env.PORT || 3000;
 
-connectDB()
-app.listen(port,()=>console.log(`server is listening on:${port}!`));
+connectDB();
+app.listen(port, () => console.log(`server is listening on:${port}!`));
