@@ -4,8 +4,12 @@ const cookieParser = require("cookie-parser");
 const userRoute = require("./routes/user.route.js");
 const mediaRoute = require("./routes/media.route.js");
 const bookmarkRoute = require("./routes/bookmark.route.js");
+const cors = require("cors");
 
 const app = express();
+
+//initialize cors
+app.use(cors());
 
 // Middleware
 app.use(express.json());

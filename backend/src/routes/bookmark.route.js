@@ -28,4 +28,4 @@ bookmarkRoute.get(
 );
 
 // exporting
-module.exports = { bookmarkRoute };
+module.exports = bookmarkRoute;
