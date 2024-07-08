@@ -20,11 +20,18 @@ const Navbar = () => {
     const { mediaType } = useParams();
 
     return (
-        // Header container with responsive styling
+        // navbar container with responsive styling
         <div className="w-11/12 mx-auto sticky top-0 h-fit rounded-xl bg-deepBlue flex px-2 py-3 z-50 items-center justify-between lg:h-[99%] lg:w-[5%] lg:flex-col ">
+ 
 
             {/* Movie icon */}
-            <MdMovie className="p-1 text-darkRed text-3xl md:text-4xl ring-1 ring-darkRed rounded-full" />
+            <MdMovie
+              onClick={() => navigate("/")}
+             className={`p-1 text-darkRed text-3xl md:text-4xl ring-1 ring-white rounded-full hover:text-darkRed cursor-pointer 
+             (pathname === "/" || mediaType === "multi" ? "text-darkRed" : "text-waikawaGrey")
+               `}
+           />
+
 
             {/* Navigation links */}
             <div className="flex lg:flex-col w-2/3 h-fit lg:h-2/3 items-center justify-center lg:justify-start text-xl md:text-2xl lg:text-3xl gap-6 lg:gap-8 ">
@@ -77,15 +84,15 @@ const Navbar = () => {
             {/* profile button */}
             <button
                 onClick={() => navigate("/profile")}
-                className="h-fit w-fit ring-darkRed ring-1 rounded-full">
+                className="h-fit w-fit ring-white ring-1 rounded-full">
                 {/* User profile image */}
                 {
                     isAuthenticated ? <img
-                        className="rounded-full h-8 w-8 lg:w-10 lg:h-10"
+                        className="rounded-full h-8 w-8 lg:w-8 lg:h-8"
                         src={userImage}
                         alt="user"
                     /> : <img
-                        className="rounded-full h-8 w-8 lg:w-10 lg:h-10"
+                        className="rounded-full h-8 w-8 lg:w-8 lg:h-8"
                         src={userLogo}
                         alt="Logo"
                     />
