@@ -4,8 +4,8 @@ import { useNavigate, Link } from 'react-router-dom'
 import { MdMovie } from "react-icons/md";
 
 // from custom files 
-import MyContext from '../../context/myContext';
-import baseUrl from '../../utils/baseUrl'
+import MyContext from '../context/myContext';
+import baseUrl from '../utils/baseUrl'
 
 
 function Login() {

@@ -3,8 +3,8 @@ import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 // from custom files 
-import myContext from '../../context/myContext';
-import baseUrl from '../../utils/baseUrl'
+import myContext from '../context/myContext';
+import baseUrl from '../utils/baseUrl'
 
 
 // logout components 
