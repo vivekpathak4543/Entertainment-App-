@@ -1,3 +1,6 @@
+const { fetchData,customizeMediaData
+} = require("../utils/media.utils.js");
+
 //search movie
 const searchMovieController = async (req, res) => {
   try {

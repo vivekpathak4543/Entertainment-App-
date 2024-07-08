@@ -26,7 +26,7 @@ mediaRoute.get("/media/trending/:page", trendingMediaController);
 mediaRoute.get("/media/movie/:page", movieMediaController);
 mediaRoute.get("/media/tv/:page", tvMediaController);
 
-// thumbnail image
+//thumbnail image
 mediaRoute.get("/media/movie/image/:movieId", movieImageController);
 mediaRoute.get("/media/tv/image/:seriesId", tvImageController);
 
