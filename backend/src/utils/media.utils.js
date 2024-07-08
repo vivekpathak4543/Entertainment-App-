@@ -16,7 +16,7 @@ const fetchData = async (url, params) => {
     return data;
   } catch (error) {
     // Handle errors if any occur
-    // console.error("Error fetching data:", error);
+    console.error("Error fetching data:", error);
     throw error;
   }
 };
