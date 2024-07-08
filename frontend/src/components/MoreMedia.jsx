@@ -1,4 +1,3 @@
-// importing from installed packages 
 import React from "react";
 import { useQuery } from 'react-query';
 import { Vortex } from "react-loader-spinner";
@@ -17,7 +16,7 @@ function MoreMedia({ currentPage, mediaType }) {
     } = useQuery([currentPage, mediaType], () => fetchMultiMedia(currentPage, mediaType));
 
     // render loading or error 
-    if (isLoading) return <Vortex height={50} width={50} />;
+    if (isLoading) return < Vortex height={40} width={40} />;
     if (isError) return <div>Error fetching data</div>;
 
     // css style 
