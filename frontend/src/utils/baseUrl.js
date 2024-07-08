@@ -1,5 +1,5 @@
 const baseUrl =
-  "http://localhost:8000/api" ||
-  "https://entertainment-app-s642.onrender.com/api";
+  "https://entertainment-app-backend-wlr5.onrender.com/" ||
+  "http://localhost:8000/api";
 
 export default baseUrl;
