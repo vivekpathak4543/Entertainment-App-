@@ -7,7 +7,6 @@ const checkBookmark = async (req, res) => {
     const existingBookmark = await Bookmark.findOne({ id });
 
     if (existingBookmark) {
-      // If bookmark with the same id exists, return an error
       return res.status(200).json({
         success: true,
         message: "Bookmark with this ID already exists",
@@ -21,7 +20,7 @@ const checkBookmark = async (req, res) => {
       isBookmarkExist: false,
     });
   } catch (error) {
-    // console.error('Error adding bookmark:', error);
+    console.error("Error adding bookmark:", error);
     res.status(500).json({
       message: "Internal server error",
       error: error,
@@ -37,7 +36,6 @@ const addBookmark = async (req, res) => {
     const existingBookmark = await Bookmark.findOne({ id });
 
     if (existingBookmark) {
-      // If bookmark with the same id exists, return an error
       return res.status(400).json({
         success: false,
         message: "Bookmark with this ID already exists",
@@ -45,7 +43,6 @@ const addBookmark = async (req, res) => {
     }
 
     const bookmark = new Bookmark({
-      // req.user , this is set at the time of authentication
       user: req.user,
       id,
       title,
@@ -65,7 +62,7 @@ const addBookmark = async (req, res) => {
       data: bookmark,
     });
   } catch (error) {
-    // console.error('Error adding bookmark:', error);
+    console.error("Error adding bookmark:", error);
     res.status(500).json({
       message: "Internal server error",
       error: error,
@@ -81,7 +78,7 @@ const deleteBookmark = async (req, res) => {
     await Bookmark.findOneAndDelete({ id: id });
     res.json({ message: "Bookmark deleted successfully" });
   } catch (error) {
-    // console.error('Error deleting bookmark:', error);
+    console.error("Error deleting bookmark:", error);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -103,7 +100,7 @@ const getBookmark = async (req, res) => {
       data: bookmarks,
     });
   } catch (error) {
-    // console.error('Error getting bookmarks:', error);
+    console.error("Error getting bookmarks:", error);
     res.status(500).json({
       success: false,
       message: "Internal server error",
@@ -127,7 +124,7 @@ const filterBookmark = async (req, res) => {
     });
     res.json(bookmarks);
   } catch (error) {
-    // console.error('Error filtering bookmarks:', error);
+    console.error("Error filtering bookmarks:", error);
     res.status(500).json({
       message: "Internal server error",
     });

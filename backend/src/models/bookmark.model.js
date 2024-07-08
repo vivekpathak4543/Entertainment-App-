@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // bookmark model
 const bookmarkSchema = mongoose.Schema({
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId, //ref to user model
     ref: "User",
     required: true,
   },

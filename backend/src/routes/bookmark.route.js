@@ -1,6 +1,6 @@
 // importing
 const express = require("express");
-const { isAuthenticated } = require("../middleware/auth.middleware.js");
+const isAuthenticated = require("../middleware/auth.middleware.js");
 const {
   checkBookmark,
   addBookmark,
