@@ -4,7 +4,6 @@ const { fetchData } = require("../utils/media.utils.js");
 const movieImageController = async (req, res) => {
   try {
     const { movieId } = req.params;
-
     const updatedMovieImageUrl =
       "https://api.themoviedb.org/3/movie/movie_id/images?api_key=".replace(
         "movie_id",
@@ -31,11 +30,9 @@ const movieImageController = async (req, res) => {
   }
 };
 
-// tv series image or thumbnail or backdrops
 const tvImageController = async (req, res) => {
   try {
     const { seriesId } = req.params;
-
     const updatedTvImageUrl =
       "https://api.themoviedb.org/3/movie/series_id/images?api_key=".replace(
         "series_id",

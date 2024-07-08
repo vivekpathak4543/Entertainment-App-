@@ -3,6 +3,7 @@ const {
   customizeMediaDetailData,
 } = require("../utils/media.utils.js");
 
+// movie detail
 const movieDetailController = async (req, res) => {
   try {
     const movieId = req.params.movieId;
@@ -25,7 +26,6 @@ const movieDetailController = async (req, res) => {
     const { cast } = await fetchData(
       updatedCastMovieUrl + `&api_key=${process.env.TMDB_KEY}`
     );
-
     res.json({
       success: true,
       data: customizeMediaDetailData(movieData, cast, "movie"),
@@ -62,7 +62,6 @@ const tvDetailController = async (req, res) => {
     const { cast } = await fetchData(
       updatedCastTvUrl + `&api_key=${process.env.TMDB_KEY}`
     );
-
     res.json({
       success: true,
       data: customizeMediaDetailData(tvData, cast, "tv"),
