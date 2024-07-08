@@ -1,6 +1,6 @@
 # Entertainment App
 
-BlissBlitz-Backend is a comprehensive backend service designed to support a front-end application for browsing, managing, and tracking movies and TV shows. It includes functionalities for user authentication, managing bookmarks, and accessing detailed information about various entertainment media.
+BlissBlitz-Backend is a comprehensive backend service designed to support a back-end application for browsing, managing, and tracking movies and TV shows. It includes functionalities for user authentication, managing bookmarks, and accessing detailed information about various entertainment media.
 
 # Features
 
@@ -33,8 +33,8 @@ cd backend
 Step 2: Environment Configuration
 .env and configure the environment variables:
 
-DATABASE_URL: MongoDB connection string.
-JWT_SECRET: Secret key for JWT token generation and verification.
+MONGODB_URi: MongoDB connection string.
+JWT_KEY: Secret key for JWT token generation and verification.
 
 Step 3: Install Dependencies
 
@@ -66,6 +66,9 @@ Models: Defines the schema for database collections.
 Routes: API routes for handling requests to different endpoints.
 Utils: Containers Helper Function to fetch media & to generate cookie.
 
+## Project Structure
+
+```
 ├─ src
 │ ├─ controllers
 │ │ └─ bookmark.controller.js
@@ -90,9 +93,10 @@ Utils: Containers Helper Function to fetch media & to generate cookie.
 ├─ .gitignore
 ├─ package-lock.json
 ├─ package.json
-├─ Readme.md
+└─ Readme.md
 
 # Additional Notes
 
 Ensure MongoDB is running and accessible through the DATABASE_URL specified in the .env file.
 All endpoints requiring authentication expect a JWT token to be provided in the Authorization header as a Bearer token.
+```

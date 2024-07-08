@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
-const dotenv =require("dotenv");
-
+const dotenv = require("dotenv");
 
 // Initialize dotenv to load environment variables from .env file
-dotenv.config()
-
+dotenv.config();
 
 // Connect to database
 const connectDB = async () => {
@@ -13,7 +11,7 @@ const connectDB = async () => {
     console.log("Connected to database successfully");
   } catch (error) {
     console.error("Database connection error:", error);
-    process.exit(1)
+    process.exit(1);
   }
 };
 
