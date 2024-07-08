@@ -20,8 +20,6 @@ const trendingMediaController = async (req, res) => {
     });
   } catch (error) {
     console.error("Error in trendingMediaController:", error);
-
-    // response with error
     res.status(500).json({
       success: false,
       error: "Internal server error in trendingMediaController",
@@ -34,7 +32,6 @@ const movieMediaController = async (req, res) => {
   try {
     const page = req.params.page || 1;
 
-    // fetching data from movieMediaUrl
     const data = await fetchData(
       "https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=en-US&sort_by=popularity.desc&certification_country=US&certification=R&page=" +
         page +
@@ -50,8 +47,6 @@ const movieMediaController = async (req, res) => {
     });
   } catch (error) {
     console.error("Error in movieMedia controllers:", error);
-
-    // response with error
     res.status(500).json({
       success: false,
       error: "Internal server error in movie Media",
@@ -59,7 +54,6 @@ const movieMediaController = async (req, res) => {
   }
 };
 
-// 03. tv shows media
 const tvMediaController = async (req, res) => {
   try {
     const page = req.params.page || 1;
@@ -70,7 +64,6 @@ const tvMediaController = async (req, res) => {
         page +
         `&api_key=${process.env.TMDB_KEY}`
     );
-
     // responding with customize data
     res.status(200).json({
       success: true,

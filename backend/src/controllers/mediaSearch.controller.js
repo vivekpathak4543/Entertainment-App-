@@ -1,3 +1,5 @@
+const { fetchData, customizeMediaData } = require("../utils/media.utils.js");
+
 //search movie
 const searchMovieController = async (req, res) => {
   try {
@@ -13,24 +15,18 @@ const searchMovieController = async (req, res) => {
       updatedSearchMovieUrl + `&api_key=${process.env.TMDB_KEY}`
     );
 
-    // If no search results are discovered,
-    // the function returns the 204 status code (No Content).
     if (data.results.length === 0) {
       return res.status(204).json({
         success: false,
         message: "Page Not Found",
       });
     }
-
-    // response with customized data
-    // top 20 results
     res.json({
       success: true,
       data: customizeMediaData(data.results.slice(0, 20), "movie"),
     });
   } catch (error) {
     console.error("Error in searchMovieController:", error);
-    // response with error
     res.status(500).json({
       success: false,
       error: "Internal server error in searchMovieController",
@@ -53,24 +49,18 @@ const searchTvController = async (req, res) => {
       updatedSearchTvUrl + `&api_key=${process.env.TMDB_KEY}`
     );
 
-    // If no search results are discovered,
-    // the function returns the 204 status code (No Content).
     if (data.results.length === 0) {
       return res.status(204).json({
         success: false,
         message: "Page Not Found",
       });
     }
-
-    // response with customized data
-    // top 20 results
     res.json({
       success: true,
       data: customizeMediaData(data.results.slice(0, 20)),
     });
   } catch (error) {
     console.error("Error in searchTvController:", error);
-    // response with error
     res.status(500).json({
       success: false,
       error: "Internal server error in searchTvController",
