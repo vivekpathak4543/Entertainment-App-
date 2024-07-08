@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaBookmark } from "react-icons/fa";
 
-// bookmark logo 
+
 function MediaBookmarked({ onClick }) {
     return (
         <div

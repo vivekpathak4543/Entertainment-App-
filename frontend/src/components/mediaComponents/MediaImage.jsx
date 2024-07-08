@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import baseUrl from '../../utils/baseUrl';
@@ -7,30 +6,32 @@ import baseUrl from '../../utils/baseUrl';
 function MediaImage({ singleMediaData, mediaType }) {
     const [mediaImage, setMediaImage] = useState(null);
 
-    // fetch extra high quality image 
+    // Fetch extra high quality image
     useEffect(() => {
         let isMounted = true;
         const fetchImage = async () => {
             try {
-                const { data } = await axios.get(`${baseUrl}/media/${mediaType}/image/${singleMediaData.id}`);
+                const { data } = await axios.get(`${baseUrl}/media/${mediaType.toLowerCase()}/image/${singleMediaData.id}`);
                 if (isMounted) {
                     setMediaImage(data.imagePath);
                 }
             } catch (error) {
-                // console.error("Error fetching multi-media:", error);
+                console.error("Error fetching media image:", error);
                 setMediaImage(null);
             }
         };
+        
         const timer = setTimeout(() => {
             fetchImage();
-        }, 2000);
+        }, 5000);
+        
         return () => {
             clearTimeout(timer);
             isMounted = false;
         };
     }, [singleMediaData.id, mediaType]);
 
-    // render image 
+    // Render image
     return (
         <div className="w-full h-24 sm:h-32 rounded-lg">
             {mediaImage ? (
@@ -57,3 +58,4 @@ function MediaImage({ singleMediaData, mediaType }) {
 }
 
 export default MediaImage;
+

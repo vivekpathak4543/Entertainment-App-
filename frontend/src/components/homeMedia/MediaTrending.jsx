@@ -18,13 +18,14 @@ function MediaTrending() {
 
 
     // render loading or error 
-    if (isLoading) return <Vortex height={50} width={50} />;
+    if (isLoading) return <Vortex height={40} width={40} />;
     if (isError) return <div>Error fetching data</div>;
 
+    
     // css style 
     const containerStyle = "p-4 mt-2 flex flex-col gap-6";
     const headingStyle = "text-2xl md:text-4xl font-bold";
-    const wrapperStyle = "flex sm:grid grid-rows-1 grid-flow-col overflow-x-scroll gap-5 lg:gap-7 scrollbar-corner-transparent scrollbar scrollbar-thumb-darkRed scrollbar-track-transparent"
+    const wrapperStyle = "flex sm:grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-7 overflow-x-scroll scrollbar-corner-transparent scrollbar scrollbar-thumb-darkRed scrollbar-track-transparent"
 
 
     return (
@@ -33,7 +34,7 @@ function MediaTrending() {
                 <h1 className={headingStyle}> Trending Movies & Tv Shows</h1>
                 <div
                     className={wrapperStyle}
-                    style={{ gridAutoColumns: "minmax(230px, auto)" }}
+                    style={{ gridAutoColumns: "minmax(25vw, auto)" }}
                 >
                     <Media mediaData={mediaData} />
                 </div>
