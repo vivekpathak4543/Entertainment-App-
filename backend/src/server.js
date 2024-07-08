@@ -11,7 +11,7 @@ const app = express();
 //initialize cors
 app.use(
   cors({
-    origin: "https://entertainment-app-frontend-nqwz.onrender.com",
+    origin: "https://entertainment-app-frontend-nqwz.onrender.com/api",
     credentials: true,
   })
 );
