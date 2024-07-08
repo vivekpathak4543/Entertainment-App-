@@ -1,4 +1,4 @@
-const { Bookmark } = require("../models/bookmark.models.js");
+const { Bookmark } = require("../models/bookmark.model.js");
 
 // check bookmark if already exist
 const checkBookmark = async (req, res) => {
