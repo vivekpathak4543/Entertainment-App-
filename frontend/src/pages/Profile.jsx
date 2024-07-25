@@ -29,7 +29,7 @@ function Profile() {
             }
             fetchUser();
         }
-    }, [myState.isAuthenticated,myState])
+    }, [myState.isAuthenticated])
 
 
 
